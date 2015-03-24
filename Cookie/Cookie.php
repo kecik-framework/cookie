@@ -53,7 +53,8 @@ class Cookie {
 	 * @param mixed $value
 	 **/
 	public function set($name, $value, $expire=0, $path='', $domain='', $secure=FALSE, $httponly=FALSE) {
-		return setcookie($name, $this->encrypt( $value ), $expire, $path, $domain, $secure, $httponly);
+		$_COOKIE[$name] = $this->encrypt( $value );
+		return setcookie($name, $_COOKIE[$name], $expire, $path, $domain, $secure, $httponly);
 	}
 
 	/**
@@ -114,6 +115,7 @@ class Cookie {
 	 **/
 	private function decrypt($ciphertext) {
 		$plaintext = $ciphertext;
+
 		if ($this->status) {
 			$plaintext = trim( mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $this->key, $ciphertext, MCRYPT_MODE_CBC, $this->iv) );
 			$plaintext_array = json_decode($plaintext, TRUE);
