@@ -12,7 +12,7 @@
 namespace Kecik;
 
 /**
- * Controller
+ * Cookie
  * @package 	Kecik\Cokie
  * @author 		Dony Wahyu Isp
  * @since 		1.0.1-alpha
