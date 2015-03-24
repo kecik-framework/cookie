@@ -1,7 +1,7 @@
 {
-    "name": "kecik/session",
+    "name": "kecik/cookie",
     "description": "Session Class untuk Kecik Framework",
-    "keywords": ["kecik", "framework", "session"],
+    "keywords": ["kecik", "framework", "cookie"],
     "license": "MIT",
     "authors": [
         {
@@ -14,7 +14,7 @@
         "kecik/kecik": "~1.0"
     },
     "autoload": {
-        "psr-4": {"Kecik\\": "Session/"}
+        "psr-4": {"Kecik\\": "Cookie/"}
     },
     "minimum-stability": "dev"
 }
