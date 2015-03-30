@@ -41,8 +41,13 @@ class Cookie {
 			else
 				$this->key = pack('H*', "bcb04b7e103a0cd8b54763051cef08bc55abe029fdebae5e1d417e2ffb2a00a3");
 
-			$iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);
-            $this->iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+			if (empty($_COOKIE['eivk'.md5($app->url->baseUrl())])) {
+				$iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);
+	            $this->iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+	            setcookie('eivk'.md5($app->url->baseUrl()), $this->iv, 0, '/');
+        	} else {
+            	$this->iv = $_COOKIE['eivk'.md5($app->url->baseUrl())];
+        	}
 		}
 
 	}
