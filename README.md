@@ -2,7 +2,7 @@
 ==========
 Is libraries were created specifically for the Kecik Framework, this library This library is made to facilitate the use of cookies on the project we build. This library also supports data encryption so that we secure the cookie data.
 
-**Installasi**
+**Installation**
 -----------
 Add the following line to the file composer.json located on the project we want to build.
 ```json
