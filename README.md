@@ -1,10 +1,10 @@
 **Kecik Cookie**
 ==========
-Merupakan pustaka/library yang dibuat khusus Framework Kecik, pustaka/library ini dibuat untuk mempermudah dalam menggunakan cookie pada project yang kita bangun. Pustaka/Library ini juga mendukung enkripsi data sehingga data cookie kita aman.
+Is libraries were created specifically for the Kecik Framework, this library This library is made to facilitate the use of cookies on the project we build. This library also supports data encryption so that we secure the cookie data.
 
 **Installasi**
 -----------
-Tambahkan baris berikut ini pada file composer.json yang berlokasi pada project yang ingin kita bangun.
+Add the following line to the file composer.json located on the project we want to build.
 ```json
 {
     "require": {
@@ -14,15 +14,15 @@ Tambahkan baris berikut ini pada file composer.json yang berlokasi pada project 
 }
 ```
 
-Selanjutnya jalan kan perintah 
+Next, run the command
 ```shell
 composer update
 ```
 
-Dan tunggu sampai proses update selesai tanpa error.
-> **Catatan**: Pustaka/Library ini membutuhkan Kecik Framework, jadi kita harus menginstall Kecik Framework terlebih dahulu, baru kita bisa menginstall Pustaka/Library ini.
+And wait until the update process is completed without error.
+> **Note**: This library requires Kecik Framework, so we need to install Kecik Framework first, and then we can install this library.
 
-## **Cara Pakai Pustaka/Library Cookie**
+## **How to use Cookie Library**
 
 ```php
 <?php
@@ -31,7 +31,7 @@ require "vendor/autoload.php";
 $app = new Kecik\Kecik();
 $cookie = new Kecik\Cookie($app);
 ```
-Sedangkan jika inginkan cookie dalam keadaan terenkripsi maka kita cukup menambahkan config enkripsi
+Whereas if you want a cookie in an encrypted then we simply add the config encryption
 
 ```php
 <?php
@@ -39,17 +39,17 @@ require "vendor/autoload.php";
 
 $app = new Kecik\Kecik();
 
-//Config untuk enkripsi cookie
+//Config for encrypt cookie
 $app->config->set('cookie.encrypt', TRUE);
 $cookie = new Kecik\Cookie($app);
 ```
 
 ### **set()**
-Fungsi /Method ini digunakan untuk membuat/mengupdate sebuah cookie.
+This Function/Method use for create/update a cookie.
 ```php
 set(string $name, mixed $value)
 ```
-**contoh**:
+**Example**:
 ```php
 <?php
 require "vendor/autoload.php";
@@ -62,11 +62,11 @@ $cookie->set('array', array('satu', 'dua', 'tiga'));
 ```
 
 ### **get()**
-Fungsi/Method ini digunakan untuk mendapatkan nilai dari suatu cookie.
+This Function/Method use for get a value from a cookie.
 ```php
 get(string $name)
 ```
-**Contoh**:
+**Example**:
 ```php
 <?php
 require "vendor/autoload.php";
@@ -84,11 +84,11 @@ print_r($cookie->get('array'));
 ```
 
 ### **delete()**
-Fungsi/Method ini digunakan untuk menghapus sebuah cookie.
+This Function/Method use for delete a cookie.
 ```php
 delete(string $name)
 ```
-**Contoh**:
+**Example**:
 ```php
 <?php
 require "vendor/autoload.php";
@@ -104,8 +104,8 @@ echo 'kecik_cookie: '.$cookie->get('kecik_cookie').'<br />';
 ```
 
 ### **clear()**
-Fungsi/Method ini digunakan untuk menghapus semua cookie yang ada.
-**Contoh**:
+This Function/Method use for delete all cookie are exist.
+**Example**:
 ```php
 <?php
 require "vendor/autoload.php";
@@ -115,4 +115,3 @@ $cookie = new Kecik\Cookie($app);
 
 $cookie->clear();
 ```
-
