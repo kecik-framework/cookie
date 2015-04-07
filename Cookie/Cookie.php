@@ -1,10 +1,16 @@
 <?php
+/*///////////////////////////////////////////////////////////////
+ /** ID: | /-- ID: Indonesia
+ /** EN: | /-- EN: English
+ ///////////////////////////////////////////////////////////////*/
+
 /**
- * Cookie - Library untuk framework kecik, library ini khusus untuk membantu masalah Cookie 
+ * ID: Cookie - Library untuk framework kecik, library ini khusus untuk membantu masalah Cookie 
+ * EN: Cookie - Library for Kecik Framework, this library specially for help Cookie problem
  *
  * @author 		Dony Wahyu Isp
  * @copyright 	2015 Dony Wahyu Isp
- * @link 		http://github.io/kecik_cookie
+ * @link 		http://github.com/kecik-framework/cookie
  * @license		MIT
  * @version 	1.0.1-alpha
  * @package		Kecik\Cookie
@@ -15,20 +21,27 @@ namespace Kecik;
  * Cookie
  * @package 	Kecik\Cokie
  * @author 		Dony Wahyu Isp
- * @since 		1.0.1-alpha
+ * @since 		1.0.0-alpha
  **/
 class Cookie {
 	/**
 	 * @var bool $status
 	 **/
-	private $status=FALSE;
+	private $status = FALSE;
+
+	/**
+	 * @var string $key
+	 **/
 
 	private $key;
+	/**
+	 * @var string $iv
+	 **/
 	private $iv;
 
 
 	/**
- 	 * __construct
+ 	 * Constuctor
  	 * @param Kecik $app
  	 **/
 	public function __construct(Kecik $app) {
@@ -96,7 +109,7 @@ class Cookie {
 
 	/**
 	 * clear
-	 * Hapus semua session
+	 * ID: Hapus semua cookie | EN: delete all cookie
 	 **/
 	public function clear() {
 		while (list($name, $value) = each($_COOKIE)) {
@@ -120,7 +133,7 @@ class Cookie {
 			$ciphertext = mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $this->key, $ciphertext, MCRYPT_MODE_CBC, base64_decode($this->iv));
 		}
 
-		return $ciphertext;
+		return base64_encode($ciphertext);
 	}
 
 	/**
