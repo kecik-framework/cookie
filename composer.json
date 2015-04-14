@@ -1,6 +1,6 @@
 {
     "name": "kecik/cookie",
-    "description": "Session Class untuk Kecik Framework",
+    "description": "Session Libraries for Kecik Framework",
     "keywords": ["kecik", "framework", "cookie"],
     "license": "MIT",
     "authors": [
