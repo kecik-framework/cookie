@@ -46,10 +46,12 @@ class Cookie {
  	 **/
 	public function __construct(Kecik $app) {
 		$config = $app->config;
-		if ( empty( $this->status = $config->get('cookie.encrypt') ) )
+		$this->status = $config->get('cookie.encrypt');
+		if ( empty( $this->status ) )
 			$this->status = FALSE;
 		else { 
-			if ( empty( $key = $config->get('cookie.encrypt.key') ) )
+			$key = $config->get('cookie.encrypt.key');
+			if ( empty( $key ) )
 				$this->key = pack('H*', $key);
 			else
 				$this->key = pack('H*', "bcb04b7e103a0cd8b54763051cef08bc55abe029fdebae5e1d417e2ffb2a00a3");
