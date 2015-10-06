@@ -158,7 +158,7 @@ class Cookie {
 	 * @return mixed
 	 **/
 	private function decrypt($ciphertext) {
-		$plaintext = $ciphertext;
+		$plaintext = base64_decode($ciphertext);
 
 		if ($this->status) {
 			$plaintext = trim( mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $this->key, base64_decode($ciphertext), MCRYPT_MODE_CBC, base64_decode($this->iv)) );
